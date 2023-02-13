@@ -7,7 +7,7 @@ const deta = Deta()
 const app = express()
 // parse json data from request.body
 app.use(express.json())
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // instalar CORS com 'npm i cors' e importando
 const cors = require('cors');
@@ -78,4 +78,7 @@ app.use(errorHandler)
 
 
 // export 'app'
-module.exports = app;
+// module.exports = app;
+app.listen(8080, () => {
+    console.log('App listening on port 8080')
+  })

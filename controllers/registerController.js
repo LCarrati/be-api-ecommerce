@@ -6,11 +6,11 @@ const bcrypt = require('bcrypt');
 
 const handleNewUser = async (req, res) => {
 	const { newUserName, password } = req.body; // vem do body da requisição
-	console.log(req.body)
+	// console.log(req.body)
 	// console.log('user' + user)
-	console.log('newUserName' + newUserName)
+	// console.log('newUserName' + newUserName)
 	// console.log('pwd' + pwd)
-	console.log('newUserName' + password)
+	// console.log('newUserName' + password)
 	if (!newUserName || !password) return res.status(400).json({ "message":"Username e password são obrigatórios"});
 	//check for duplicates (busco na DB um usuário com username = ao que o estão tentando cadastrar)
 	const duplicate = await usuarios.fetch({"username":newUserName}); 

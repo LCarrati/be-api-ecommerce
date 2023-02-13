@@ -4,7 +4,7 @@ require('dotenv').config(); //remover, nao precisa aqui, só na primeira linha d
 const verifyJWT = (req, res, next) => {
     // o nome do campo onde vem o token, por padrão, é authorization ou Authorization
 	const authHeader = req.headers.authorization || req.headers.Authorization; 
-	console.log(authHeader); // vai vir como 'Bearer token'
+	// console.log(authHeader); // vai vir como 'Bearer token'
 	if (!authHeader?.startsWith('Bearer ')) return res.sendStatus(401);
 	const token = authHeader.split(' ') // assim tiro 'Bearer ' e deixo só o token
 	jwt.verify(

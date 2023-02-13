@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express() //teoricamente nao preciso disso
 app.use(express.json()) //nao deveria precisar disso aqui tb
-app.use(express.urlencoded()); //nao deveria precisar disso aqui tb
+app.use(express.urlencoded({ extended: true })); //nao deveria precisar disso aqui tb
 
 const usersController = require('../controllers/usersController')
 

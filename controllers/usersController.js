@@ -36,9 +36,9 @@ const changeUserData = async(req, res) => {
     const novosDados = { nome, sobrenome, email, senha, roles}
 
     const findUser = await usuarios.fetch({"username":username});
-    console.log(findUser)
-    console.log(findUser.items[0].key)
-    console.log(novosDados)
+    // console.log(findUser)
+    // console.log(findUser.items[0].key)
+    // console.log(novosDados)
     if (findUser) {
         const userId = findUser.items[0].key
         const user = await usuarios.update(novosDados,userId);

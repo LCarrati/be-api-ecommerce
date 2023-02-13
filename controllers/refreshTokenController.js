@@ -15,10 +15,11 @@ const handleRefreshToken = async (req, res) => {
 	if (!cookies?.jwt) return res.sendStatus(401); //cookies?.jwt => verifica se existe um cookie com a propriedade jwt nele
 	console.log(cookies.jwt);
 	const refreshToken = cookies.jwt;
+	console.log('RT '+refreshToken)
 
 	const foundUser = await usuarios.fetch({"refreshToken":refreshToken})
 	if (foundUser.count = 0) return res.sendStatus(403); //Forbidden
-	
+	console.log('achei no refresh '+ JSON.stringify(foundUser))
     // evaluate jwt
 	jwt.verify(
 		refreshToken,
